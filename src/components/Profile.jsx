@@ -109,9 +109,9 @@ const Profile=()=>{
      </div>
 
 
-            <div id="userExp" className="mt-10  rounded-md cursor-pointer bg-[#1D232A] text-white w-[380px] h-[500px]">
-                <div className="w-full h-[250px]">
-                    <img src={photoUrl || "https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3383.jpg?semt=ais_hybrid"} className=" w-full h-full object-cover "></img>
+            <div id="userExp" className="mt-10  rounded-md cursor-pointer bg-[#1D232A] text-white w-[380px] h-[590px]">
+                <div className="w-full h-[380px]">
+                    <img src={photoUrl || "https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3383.jpg?semt=ais_hybrid"} className=" w-full h-full object-fill "></img>
                 </div>
                 <div className="flex mt-5">
                     <p  className="ml-5 text-3xl font-bold ">{firstName} { lastName}</p> 

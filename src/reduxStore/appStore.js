@@ -1,13 +1,15 @@
 import {configureStore} from "@reduxjs/toolkit"
 import userReducer from "./userSlice" //you can take any name in the place of userReducer but remember plac eit in reducer obj of appstore
 import loginReducer from "./loginLogoutSlice";
+import feedReducer from "./feedSlice";
 
 
 
 const appStore=configureStore({
     reducer:{
         user:userReducer, 
-        login:loginReducer,  
+        login:loginReducer, 
+        feed:feedReducer  //feed:{initialState:null} after dispatch an action the initialState will change will new value. 
     }
 })
 export default appStore;

@@ -15,10 +15,10 @@ const Navbar = () => {
   const loginData=useSelector((store)=>store.login)
   // const userLogo=useSelector((store)=>store?.user?.data?.photoUrl);
   const user=useSelector((store)=>store.user);
-  console.log(user);
+  // console.log(user);
   const handleLogout=async()=>{
     const res=await axios.post("http://localhost:3000/logout", { },{withCredentials:true});
-    console.log(res.data.message);
+    // console.log(res.data.message);
     dispatch(removeUser());
     return navigate("/login")
 
