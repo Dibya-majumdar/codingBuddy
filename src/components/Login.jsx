@@ -10,12 +10,13 @@ import { change } from "../reduxStore/loginLogoutSlice";
 const Login=()=>{
     const dispatch=useDispatch();
     
-    const [email,setEmail]=useState("sani@gmail.com");
-    const [pass,setPass]=useState("sani@123");
+    const [email,setEmail]=useState("dibya@gmail.com");
+    const [pass,setPass]=useState("dibya@123");
     const[error,setError]=useState("");
     const navigate=useNavigate();
     const submitLogin=async()=>{
         try{
+            // const res=await axios.post("http://localhost:3000/login", { emailId: email, password: pass });
             const res=await axios.post("http://localhost:3000/login", { emailId: email, password: pass },{withCredentials:true});
           
             console.log(res);
