@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
    <>
-   <div id="navbar" className='bg-[#1D232A] flex h-[60px] justify-between w-full'>
+   <div id="navbar" className='bg-[#1D232A] flex h-[60px] justify-between w-full '>
     <div id="textlogo&" className='text-lg text-white ml-10 mt-[10px] font-bold h-[35px] w-[65px] '>DevBuddy</div>
     <div id="login&signup" className='text-lg flex gap-5'>
      <button className='bg-green-500 text-black rounded-xl h-[35px] w-[65px]  mt-[10px] font-bold 'onClick={()=>{
@@ -41,6 +41,15 @@ const Navbar = () => {
           }
          
      }}> {loginData}</button>
+{loginData=="logout" && <Link to={"/feed"}> <div className='h-10 w-10 rounded-full bg-red-700 mt-[6px]'>
+  <img src='https://i.pinimg.com/474x/e5/fc/e3/e5fce38f237cd259d351b3b273773f2b.jpg' className='object-cover overflow-hidden rounded-full '></img>
+
+</div></Link> }
+{loginData=="logout" && <Link to={"/connections"}> <div className='h-10 w-10 rounded-full bg-red-700 mt-[6px]'>
+  <img src='https://i.pinimg.com/474x/6f/c5/8d/6fc58dae01934e9e7e37c646a2d30b14.jpg' className='object-cover overflow-hidden rounded-full '></img>
+
+</div></Link> }
+
 
 
 

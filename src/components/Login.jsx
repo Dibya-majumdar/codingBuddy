@@ -33,7 +33,7 @@ const Login=()=>{
 
     return(
         <>
-     <div id="login" className="bg-[#1D232A] text-white w-1/4  ml-[500px] mt-10 h-[350px] rounded-md cursor-pointer    " >
+     <div id="login" className="bg-[#1D232A] text-white w-1/4  ml-[500px] mt-5 h-[350px] rounded-md cursor-pointer    " >
      <p className="pl-[355px] text-2xl" onClick={()=>navigate("/")}>x</p>
      <p className=" pt-2 ml-36 font-bold text-lg text-green-500">Login</p>
     
