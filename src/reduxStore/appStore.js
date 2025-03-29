@@ -3,6 +3,7 @@ import userReducer from "./userSlice" //you can take any name in the place of us
 import loginReducer from "./loginLogoutSlice";
 import feedReducer from "./feedSlice";
 import FriendReducer from "./friendsSlice";
+import frdRequestReducer from "./frdRequestSlice"
 
 
 
@@ -11,7 +12,8 @@ const appStore=configureStore({
         user:userReducer, 
         login:loginReducer, 
         feed:feedReducer,  //feed:{initialState:null} after dispatch an action the initialState will change will new value. 
-        friend:FriendReducer
+        friend:FriendReducer,
+        frdRequest:frdRequestReducer
     }
 })
 export default appStore;

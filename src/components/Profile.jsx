@@ -1,3 +1,4 @@
+//profile section inside where we are showing the update profile card
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
@@ -19,7 +20,7 @@ const Profile=()=>{
       setAny(true);
       setAny2(val1);
     }
-    console.log(selector);
+    // console.log(selector);
   }, [val1]); 
    
    

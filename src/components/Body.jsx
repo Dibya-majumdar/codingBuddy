@@ -1,3 +1,5 @@
+//this is the whole body of project where navbar and outlet is present
+
 import React, { useEffect } from 'react'
 import Navbar from './Navbar'
 import { Outlet } from 'react-router-dom'

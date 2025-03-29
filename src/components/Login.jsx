@@ -1,3 +1,4 @@
+//login card
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -19,7 +20,7 @@ const Login=()=>{
             // const res=await axios.post("http://localhost:3000/login", { emailId: email, password: pass });
             const res=await axios.post("http://localhost:3000/login", { emailId: email, password: pass },{withCredentials:true});
           
-            console.log(res);
+            // console.log(res);
             dispatch(addUser(res.data));
             dispatch(change())
             return navigate("/feed");

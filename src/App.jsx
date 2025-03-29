@@ -8,6 +8,7 @@ import appStore from "./reduxStore/appStore";
 import { Provider } from "react-redux";
 import Profile from "./components/Profile";
 import FriendList from "./components/FriendsList";
+import FriendRequest from "./components/FriendRequest";
 const App=()=>{
 
 
@@ -21,6 +22,7 @@ const App=()=>{
       <Route path="/feed" element={<Feed/>}></Route>
       <Route path="/profile" element={<Profile/>}></Route>
       <Route path="/connections" element={<FriendList/>}></Route>
+      <Route path="/connectionrequest" element={<FriendRequest/>}></Route>
     </Route>
     
  </Routes>
