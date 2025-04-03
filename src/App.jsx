@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import Profile from "./components/Profile";
 import FriendList from "./components/FriendsList";
 import FriendRequest from "./components/FriendRequest";
+import Banner from "./components/Banner";
 const App=()=>{
 
 
@@ -18,6 +19,7 @@ const App=()=>{
  <BrowserRouter basename="/">
  <Routes>
     <Route path="/" element={<Body/>}>
+    <Route path="/" element={<Banner/>}></Route>
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/feed" element={<Feed/>}></Route>
       <Route path="/profile" element={<Profile/>}></Route>

@@ -1,7 +1,18 @@
 //friends send request (card)
+import axios from 'axios'
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { removeFrd } from '../reduxStore/frdRequestSlice'; //in the same folder means ./ but if diff folder than ../ 
 
 const ConnectionReqCard = ({val}) => {
+  const selector=useSelector((store)=>store.frdRequest);
+  const dispatch=useDispatch();
+  console.log("val:",val);
+const handleAddOrRemoveFriend=async(status,reqId)=>{
+const res=await axios.post(`http://localhost:3000/request/review/${status}/${reqId}`,{},{withCredentials:true}); 
+console.log(res);
+}
+
   return (
     <>
         <div id="userExp" className=" flex rounded-md cursor-pointer bg-[#1D232A] text-white w-[400px] h-[150px] ml-[530px]  mt-1 border border-solid border-black">
@@ -18,8 +29,14 @@ const ConnectionReqCard = ({val}) => {
              
             
               <div className="mt-5">
-                  <button className="bg-green-500 rounded-md   ml-5 w-20 h-9 ">Add</button>
-                  <button className="bg-red-500 rounded-md  ml-2 w-20 h-9">Remove</button>
+                  <button className="bg-green-500 rounded-md   ml-5 w-20 h-9 " onClick={()=>{
+                    handleAddOrRemoveFriend("accepted",val._id);
+                    dispatch(removeFrd(val._id))
+                  }}>Add</button>
+                  <button className="bg-red-500 rounded-md  ml-2 w-20 h-9" onClick={()=>{
+                           handleAddOrRemoveFriend("rejected",val._id);
+                           dispatch(removeFrd(val._id));
+                  }}>Remove</button>
               </div>
               </div>
 

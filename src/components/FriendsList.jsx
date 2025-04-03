@@ -4,9 +4,8 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFriendsData } from "../reduxStore/friendsSlice";
-import FeedCard from "./FeedCard";
 import FriendsCard from "../cards/FriendsCard";
-import { Link } from "react-router-dom";
+
 
 const FriendList=()=>{
     const selector=useSelector((store)=>store.friend);
@@ -25,8 +24,8 @@ const FriendList=()=>{
         connections();
     },[])
 
-    if(selector==null) return
-    if(selector.length===0) return <h1>no friends found</h1>
+    if(selector==null) return <h1 className='ml-[600px] mt-3 font-bold text-3xl  '>no friends found</h1>
+    if(selector.length===0) return <h1 className='ml-[600px] mt-3 font-bold text-3xl  '>no friends found</h1>
     return(
         <>
       <div>

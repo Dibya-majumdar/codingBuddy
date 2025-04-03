@@ -45,10 +45,10 @@ const Navbar = () => {
   <img src='https://i.pinimg.com/474x/e5/fc/e3/e5fce38f237cd259d351b3b273773f2b.jpg' className='object-cover overflow-hidden rounded-full '></img>
 
 </div></Link> }
-{/* {loginData=="logout" && <Link to={"/connections"}> <div className='h-10 w-10 rounded-full bg-red-700 mt-[6px]'>
+{loginData=="logout" && <Link to={"/connections"}> <div className='h-10 w-10 rounded-full bg-red-700 mt-[6px]'>
   <img src='https://i.pinimg.com/474x/6f/c5/8d/6fc58dae01934e9e7e37c646a2d30b14.jpg' className='object-cover overflow-hidden rounded-full '></img>
 
-</div></Link> } */}
+</div></Link> } 
 {loginData=="logout" && <Link to={"/connectionrequest"}> <div className='h-10 w-10 rounded-full bg-red-700 mt-[6px]'>
   <img src='https://i.pinimg.com/474x/7b/17/ed/7b17edda62f7838c983dc5d4b4f344b4.jpg' className='object-cover overflow-hidden rounded-full '></img>
 

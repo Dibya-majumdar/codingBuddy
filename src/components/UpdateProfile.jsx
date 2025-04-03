@@ -57,9 +57,10 @@ const handleSave=async()=>{
                 setLastName(e.target.value);
             }}/>
         </div>
-        <div id="password">
-            <p className="mt-[10px] ml-[25px] font-bold text-xl ">Password</p>
-            <input placeholder="Enter LastName" className="rounded-sm  ml-[25px] w-[330px] h-10 mt-2 pl-5 text-black outline-none" value={password} onChange={(e)=>{
+        <div id="password" className=''>
+           
+        <div className='flex gap-2'><p className="mt-[10px] ml-[25px] font-bold text-xl ">Password</p><p className='text-[12px] font-semibold mt-[15px] ml[15px] text-red-500'> (if you want to change)</p></div>
+            <input placeholder="Enter password " className="rounded-sm  ml-[25px] w-[330px] h-10 mt-2 pl-5 text-black outline-none" value={password} onChange={(e)=>{
                 
                 setPassword(e.target.value);
             }}/>
@@ -104,7 +105,7 @@ const handleSave=async()=>{
      </div>
 
 
-            <div id="userExp" className="mt-10  rounded-md cursor-pointer bg-[#1D232A] text-white w-[380px] h-[590px]">
+            <div id="userExp" className="mt-10  rounded-md cursor-pointer bg-[#1D232A] text-white w-[380px] h-[590px] overflow-hidden">
                 <div className="w-full h-[380px]">
                     <img src={photoUrl || "https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3383.jpg?semt=ais_hybrid"} className=" w-full h-full object-fill "></img>
                 </div>
@@ -116,9 +117,9 @@ const handleSave=async()=>{
                 <div className="ml-5 text-xl ">
                     <p>{about}</p>
                 </div>
-                <div className="mt-5">
-                    <button className="bg-red-500 rounded-md h-12 w-24 ml-5 ">ignore</button>
-                    <button className="bg-green-500 rounded-md h-12 w-24 ml-2">intersted</button>
+                <div className="mt-5 mb-5">
+                    <button className="bg-red-500 rounded-full h-20 w-20 ml-20 "><img src="https://i.pinimg.com/474x/30/70/c5/3070c56f03f23cb365032a91e6d74345.jpg" className="h-full w-full object-fill rounded-full"></img></button>
+                    <button className="bg-green-500 rounded-full h-20 w-20 ml-2 mb-5"><img src="https://i.pinimg.com/474x/b8/97/78/b89778a5df1add8ff6481df59b2b0dac.jpg" className="h-full w-full object-fill rounded-full"></img></button>
                 </div>
 
 
