@@ -17,7 +17,7 @@ const Feed = () => {
   try{
     const res=await axios.get("http://localhost:3000/user/feed",{withCredentials:true});
     const val=res.data;
-    console.log(res);
+    // console.log(res);
    dispatch(addFeedData(val));    //storing data into initialState of feed slice of store.
    
    

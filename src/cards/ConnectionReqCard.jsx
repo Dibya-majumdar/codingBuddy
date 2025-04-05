@@ -7,7 +7,7 @@ import { removeFrd } from '../reduxStore/frdRequestSlice'; //in the same folder 
 const ConnectionReqCard = ({val}) => {
   const selector=useSelector((store)=>store.frdRequest);
   const dispatch=useDispatch();
-  console.log("val:",val);
+  // console.log("val:",val);
 const handleAddOrRemoveFriend=async(status,reqId)=>{
 const res=await axios.post(`http://localhost:3000/request/review/${status}/${reqId}`,{},{withCredentials:true}); 
 console.log(res);

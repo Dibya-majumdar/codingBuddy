@@ -8,7 +8,7 @@ const FeedCard=({val})=>{
     
    
 
-   console.log(val);
+   
 const handleBtn=async(status,requestid)=>{
     try{
         const res=await axios.post(`http://localhost:3000/request/send/${status}/${requestid}`,{},{withCredentials:true}); //now everything is perfect but after sending request i have to remove the card from page -> Todo
