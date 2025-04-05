@@ -20,6 +20,22 @@ const UpdateProfile = ({val}) => {
     const[about,setAbout]=useState(val.about|| "");
      const[error,setError]=useState("");
 
+     const handleUpload=async(e)=>{
+        const file=e.target.files[0];//image that user pass from input box
+        if(!file) return; 
+        const formData=new FormData(); //make a obj(it is raw js)
+        formData.append("image",file); //pass image in the obj
+        try{
+             const res=await axios.post(`https://api.imgbb.com/1/upload?expiration=600&key=0c0cbaf58e6997933b70c102e60cca69`,formData);//at first it is showing error beacuse of i have did -> {formData}.but i should do -> formData.
+           console.log(res.data.data.url);
+           setPhotoUrl(res.data.data.url)
+        }catch(err){
+            console.log(err);
+        }
+
+
+     }
+
    
 const handleSave=async()=>{
         try{
@@ -66,12 +82,10 @@ const handleSave=async()=>{
             }}/>
         </div>
      
-        <div id="photoUrl">
-            <p className="mt-[10px] ml-[25px] font-bold text-xl ">PhotoUrl</p>
-            <input placeholder="Enter url" className="rounded-sm  ml-[25px] w-[330px] h-10 mt-2 pl-5 text-black outline-none" value={photoUrl} onChange={(e)=>{
-                
-                setPhotoUrl(e.target.value);
-            }}/>
+        <div id="photoUrl" >
+            <p className="mt-[10px] ml-[25px] font-bold text-xl text-white ">PhotoUrl</p>
+            <div  className="rounded-sm  ml-[10px] w-[930px] h-10 mt-2 pl-5 text-white outline-none">  <input  type="file" accept="image/*"  onChange={handleUpload}/></div>
+          
         </div>
         <div id="age">
             <p className="mt-[10px] ml-[25px] font-bold text-xl ">Age</p>
