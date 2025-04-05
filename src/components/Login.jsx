@@ -42,7 +42,7 @@ const Login=()=>{
     }
     const submitSignup=async()=>{
         try{
-            const res=await axios.post("http://localhost:3000/signup",{firstName,lastName,age,emailId:email,password:pass,photoUrl,gender,about},{withCredentials:true});
+            const res=await axios.post("http://localhost:3000/signup",{firstName,lastName,age,emailId:email,password:pass,gender,about},{withCredentials:true});//remove photoUrl from here
             console.log(res);
             // setData(!data);//make only after signuP automatically comes to login Ui
             setsignUp(!signUp);
@@ -129,13 +129,13 @@ const Login=()=>{
                 setAge(e.target.value);
             }}/>
         </div>
-        <div id="password">
+        {/* <div id="password">
             <p className="mt-[10px] ml-[25px] font-bold text-xl ">Photo Url</p>
             <input placeholder="Enter photo url" className="rounded-sm  ml-[25px] w-[330px] h-10 mt-2 pl-5 text-black outline-none" value={photoUrl} onChange={(e)=>{
                    setError("")
                 setPhotoUrl(e.target.value);
             }}/>
-        </div>
+        </div> */}
         <div id="password">
             <p className="mt-[10px] ml-[25px] font-bold text-xl ">Gender</p>
             <input placeholder="Enter gender" className="rounded-sm  ml-[25px] w-[330px] h-10 mt-2 pl-5 text-black outline-none" value={gender} onChange={(e)=>{
