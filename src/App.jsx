@@ -10,6 +10,7 @@ import Profile from "./components/Profile";
 import FriendList from "./components/FriendsList";
 import FriendRequest from "./components/FriendRequest";
 import Banner from "./components/Banner";
+import Chat from "./components/Chat";
 const App=()=>{
 
 
@@ -25,6 +26,7 @@ const App=()=>{
       <Route path="/profile" element={<Profile/>}></Route>
       <Route path="/connections" element={<FriendList/>}></Route>
       <Route path="/connectionrequest" element={<FriendRequest/>}></Route>
+      <Route path="/chat/:targetUserId" element={<Chat/>}></Route>
     </Route>
     
  </Routes>

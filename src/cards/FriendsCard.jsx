@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const FriendsCard = ({val}) => {
+
   return (
     <>
          <div id="userExp" className=" flex rounded-md cursor-pointer bg-[#1D232A] text-white w-[400px]  ml-[530px]  mt-1 border border-solid border-black">
@@ -18,6 +20,9 @@ const FriendsCard = ({val}) => {
                 </div>
                 <p className='ml-7'>{val.gender}</p>
                 <p className='ml-7'>{val.about}</p>
+               <Link to={"/chat/"+val._id}><div className='ml-7 mt-2 '>
+                  <button className='bg-green-500 w-24 h-8  rounded-md text-black font-bold'>Message</button>
+                </div></Link>
              
             
               {/* <div className="mt-2 mb-2">
