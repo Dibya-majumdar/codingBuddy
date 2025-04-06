@@ -12,8 +12,8 @@ const Login=()=>{
     const dispatch=useDispatch();
     
     const [signUp,setsignUp]=useState(false);
-    const [email,setEmail]=useState("dibya@gmail.com");
-    const [pass,setPass]=useState("dibya@123");
+    const [email,setEmail]=useState("");
+    const [pass,setPass]=useState("");
     const[firstName,setFirstName]=useState("");
     const [lastName,setLastname]=useState("");
     const [age,setAge]=useState("");
@@ -34,9 +34,9 @@ const Login=()=>{
             dispatch(change())
             return navigate("/feed");
         }catch(err){
-           
+            // console.log(err.response.data);
             setError(err.response.data);
-            console.log(err.response.data);
+            
         }
      
     }
@@ -47,7 +47,8 @@ const Login=()=>{
             // setData(!data);//make only after signuP automatically comes to login Ui
             setsignUp(!signUp);
         }catch(err){
-            console.log(error);
+            // console.log(error);
+            setError(err.response.data);
         }
        
     }
@@ -56,7 +57,7 @@ const Login=()=>{
 //ml-500
     return(
         <>
-        {signUp==false ?(<div id="login" className="bg-[#1D232A] text-white w-1/4   ml-0 sm:ml-20 md:ml-40 lg:ml-64 xl:ml-[500px] mt-5 h-[350px] rounded-md cursor-pointer    " >
+        {signUp==false ?(<div id="login" className="bg-[#1D232A] text-white w-1/4   ml-0 sm:ml-20 md:ml-40 lg:ml-64 xl:ml-[500px] mt-5  rounded-md cursor-pointer    " >
      <p className="pl-[355px] text-2xl" onClick={()=>navigate("/")}>x</p>
      <p className=" pt-2 ml-36 font-bold text-lg text-green-500">Login</p>
     
@@ -70,20 +71,20 @@ const Login=()=>{
         </div>
         <div id="password">
             <p className="mt-[10px] ml-[25px] font-bold text-xl ">Password</p>
-            <input placeholder="Enter Password" className="rounded-sm  ml-[25px] w-[330px] h-10 mt-2 pl-5 text-black outline-none" value={pass} onChange={(e)=>{
+            <input type="password" placeholder="Enter Password" className="rounded-sm  ml-[25px] w-[330px] h-10 mt-2 pl-5 text-black outline-none" value={pass} onChange={(e)=>{
                    setError("")
                 setPass(e.target.value);
             }}/>
         </div>
         {
-           setError !=" " ? <p className="ml-28 text-red-500">{error}</p>:<p></p>
+           error !=" " ? <p className="ml-28 text-red-500">{error}</p>:<p></p>
         }
         <div id="btn">
             <button className="bg-green-600 rounded-lg h-10 w-24  mt-3 ml-32" onClick={submitLogin}>Login</button>
            
         </div>
-        <div className="flex ml-20 mt-5">
-            <p className="text-gray-500 font-bold">new in website ? Do</p><p className="text-gray-500 font-bold underline ml-1" onClick={()=>{ setsignUp(true)}
+        <div className="flex ml-20 mt-5 mb-5">
+            <p className="text-gray-500 font-bold mb-5">new in website ? Do</p><p className="text-gray-500 font-bold underline ml-1" onClick={()=>{ setsignUp(true)}
                }>signUp</p>
         </div>
      </div>)
@@ -151,13 +152,13 @@ const Login=()=>{
             }}/>
         </div>
         {
-           setError !=" " ? <p className="ml-28 text-red-500">{error}</p>:<p></p>
+           error !=" " ? <p className="ml-28 text-red-500">{error}</p>:<p></p>
         }
         <div id="btn">
             <button className="bg-green-600 rounded-lg h-10 w-24  mt-3 ml-32" onClick={submitSignup}>signUp</button>
            
         </div>
-        <div className="flex ml-16 mt-5">
+        <div className="flex ml-16 mt-5 mb-5">
             <p className="text-gray-500 font-bold text-center">already have an account ?</p><p className="text-gray-500 font-bold underline ml-1" onClick={()=>{
                 setsignUp(false)
             }}>login</p>
