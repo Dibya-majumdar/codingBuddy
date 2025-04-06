@@ -27,7 +27,7 @@ const UpdateProfile = ({val}) => {
         formData.append("image",file); //pass image in the obj
         try{
              const res=await axios.post(`https://api.imgbb.com/1/upload?&key=0c0cbaf58e6997933b70c102e60cca69`,formData);//at first it is showing error beacuse of i have did -> {formData}.but i should do -> formData.
-           console.log(res.data.data.url);
+           console.log(res);
            setPhotoUrl(res.data.data.url)
         }catch(err){
             console.log(err);

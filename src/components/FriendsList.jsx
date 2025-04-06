@@ -34,9 +34,9 @@ const FriendList=()=>{
      
       
       </div>
-        {selector.map((val)=>{
+        {selector.map((val,index)=>{
             return(
-                <FriendsCard val={val}/>    //TODO-> make it by your self
+                <FriendsCard key={index} val={val}/>    //TODO-> make it by your self
             )
         })}
       </div>

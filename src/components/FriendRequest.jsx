@@ -44,9 +44,9 @@ useEffect(()=>{
       </div></Link>
       </div>}
  
-      {selector !=null && selector.map((val)=>{
+      {selector !=null && selector.map((val,index)=>{
         return (
-          <ConnectionReqCard val={val}/>    //todo make ui by yourself
+          <ConnectionReqCard key={index} val={val}/>    //todo make ui by yourself
         )
       })}
      
