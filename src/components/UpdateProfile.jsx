@@ -7,6 +7,8 @@ import axios from "axios";
 
 import { addUser } from "../reduxStore/userSlice";
 
+
+
 const UpdateProfile = ({val}) => {
     const dispatch=useDispatch();
      const navigate=useNavigate();
@@ -26,7 +28,7 @@ const UpdateProfile = ({val}) => {
         const formData=new FormData(); //make a obj(it is raw js)
         formData.append("image",file); //pass image in the obj
         try{
-             const res=await axios.post(`https://api.imgbb.com/1/upload?&key=0c0cbaf58e6997933b70c102e60cca69`,formData);//at first it is showing error beacuse of i have did -> {formData}.but i should do -> formData.
+             const res=await axios.post(`https://api.imgbb.com/1/upload?&key=${import.meta.env.VITE_IMAGEBB_KEY}`,formData);//at first it is showing error beacuse of i have did -> {formData}.but i should do -> formData.
            console.log(res);
            setPhotoUrl(res.data.data.url)
         }catch(err){
