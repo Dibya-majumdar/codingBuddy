@@ -57,9 +57,10 @@ const Login=()=>{
 //ml-500
     return(
         <>
-        {signUp==false ?(<div id="login" className="bg-[#1D232A] text-white w-1/4   ml-0 sm:ml-20 md:ml-40 lg:ml-64 xl:ml-[500px] mt-5  rounded-md cursor-pointer    " >
+        {signUp==false ?(<div id="login" className="bg-[#1D232A] text-white  w-11/12 sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 
+    ml-auto mr-auto    ml-0 sm:ml-20 md:ml-40 lg:ml-64 xl:ml-[500px] mt-5  rounded-md cursor-pointer    " >
      <p className="pl-[355px] text-2xl" onClick={()=>navigate("/")}>x</p>
-     <p className=" pt-2 ml-36 font-bold text-lg text-green-500">Login</p>
+     <p className=" pt-2 ml-36 sm:ml-16 md:ml-36 font-bold text-lg text-green-500">Login</p>
     
    
         <div id="email"className="ml-0 ">

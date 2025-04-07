@@ -29,7 +29,7 @@ const FriendList=()=>{
     return(
         <>
       <div>
-      <div className='flex gap-10 '>
+      <div className='flex gap-10 mb-5 '>
       <div> <p className='ml-[620px]  mt-2 text-3xl font-bold mb-5'>Your Friends(< span className="text-red-500">{selector.length}</span>)</p></div>
      
       

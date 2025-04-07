@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import { addUser } from '../reduxStore/userSlice'
 import { change, notchange } from '../reduxStore/loginLogoutSlice'
+import Footer from './Footer'
 //cause we are always coming here at first so check is user in login or not? if login then set the redux store and update the ui thats all
 const Body = () => {
   const dispatch=useDispatch();
@@ -32,6 +33,7 @@ fetchUser();
     <>
       <Navbar/>
       <Outlet/>
+      {/* <Footer/> */}
     </>
   )
 }

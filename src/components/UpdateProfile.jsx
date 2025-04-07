@@ -53,7 +53,7 @@ const handleSave=async()=>{
 
   return (
     <>
-      <div id="wraperTopMost" className="flex w-full gap-10" >
+      <div id="wraperTopMost" className="flex w-full gap-10 mb-5" >
             
 
             <div id="edit" className="bg-[#1D232A] text-white w-[380px]  ml-[350px] mt-10  rounded-md cursor-pointer    " >
