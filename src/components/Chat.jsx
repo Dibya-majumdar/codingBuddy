@@ -64,8 +64,8 @@ useEffect(() => {
   return (
     < >
     
-        <div id='chat_container' className='w-1/2  m-auto mt-10 rounded-md bg-[#1D232A]'>
-          <nav className='w-full h-10  overflow-hidden border border-white text-white pt-2 pl-2'>chat</nav>       {/*bg-blue-500 */}
+        <div id='chat_container' className='w-1/2  m-auto mt-10 rounded-md bg-[#1D232A] mb-16 overflow-hidden'>
+          <nav className='w-full h-10  overflow-hidden border border-white text-white pt-2 pl-2 text-2xl'>chat</nav>       {/*bg-blue-500 */}
           <main className="w-full h-96 overflow-y-auto overflow-x-hidden bg-[#1D232A] p-4 space-y-2">
           
  

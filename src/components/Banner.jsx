@@ -26,7 +26,7 @@ const Banner = () => {
       <img  src={exampleImage} alt="" className='h-[634px] w-[1520px]' />
       
      </div>
-     <Footer/>
+     {/* <Footer/> */}
     
     </>
   )

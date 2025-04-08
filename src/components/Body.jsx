@@ -31,9 +31,17 @@ fetchUser();
   },[])
   return (
     <>
-      <Navbar/>
+    <div className="min-h-screen flex flex-col">
+    <Navbar/>
+   
+    <div className="flex-grow">
+<Outlet/>
+    </div>
+    <Footer/>
+    </div>
+      {/* <Navbar/>
       <Outlet/>
-      {/* <Footer/> */}
+      <Footer/> */}
     </>
   )
 }
