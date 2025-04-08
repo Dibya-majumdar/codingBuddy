@@ -23,7 +23,7 @@ const handleBtn=async(status,requestid)=>{
 //h-[590px] top div
     return (
         <>
-        <div id="userExp" className=" mb-5 rounded-md cursor-pointer bg-[#1D232A] text-white w-[380px]  ml-[530px] mt-5 border border-solid border-black"> 
+        <div id="userExp" className=" mb-5 rounded-md cursor-pointer bg-[#1D232A] text-white w-[330px] md:ml-[200px]  md:w-[380px] ml-5 sm:ml-28 lg:ml-[530px] mt-5 border border-solid border-black"> 
               
               <div className="w-full h-[380px] ">
                   <img src={val.photoUrl || "https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3383.jpg?semt=ais_hybrid"} className=" w-full h-full object-fill  "></img>

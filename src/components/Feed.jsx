@@ -33,7 +33,7 @@ feedApiFunc();
 },[])
 
 if(feed==null) return;
-if(feed.length===0) return <h1 className='ml-[600px] mt-3 font-bold text-3xl  '> Feed is empty 🤡</h1>
+if(feed.length===0) return <h1 className=' text-center  mt-3 font-bold text-3xl  '> Feed is empty 🤡</h1> //lg:ml-[600px]
 
   return (
     <>

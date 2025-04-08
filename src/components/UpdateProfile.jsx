@@ -28,7 +28,7 @@ const UpdateProfile = ({val}) => {
         const formData=new FormData(); //make a obj(it is raw js)
         formData.append("image",file); //pass image in the obj
         try{
-             const res=await axios.post(`https://api.imgbb.com/1/upload?&key=${import.meta.env.VITE_IMAGEBB_KEY}`,formData);//at first it is showing error beacuse of i have did -> {formData}.but i should do -> formData.
+             const res=await axios.post(`https://api.imgbb.com/1/upload?&key=0c0cbaf58e6997933b70c102e60cca69`,formData);//at first it is showing error beacuse of i have did -> {formData}.but i should do -> formData.
            console.log(res);
            setPhotoUrl(res.data.data.url)
         }catch(err){
@@ -53,10 +53,10 @@ const handleSave=async()=>{
 
   return (
     <>
-      <div id="wraperTopMost" className="flex w-full gap-10 mb-5" >
+      <div id="wraperTopMost" className="lg:flex w-full gap-10 mb-5" >
             
 
-            <div id="edit" className="bg-[#1D232A] text-white w-[380px]  ml-[350px] mt-10  rounded-md cursor-pointer    " >
+            <div id="edit" className="bg-[#1D232A] text-white w-[380px]  ml-5 lg:ml-[350px] mt-10  rounded-md cursor-pointer    " >
      <p className="pl-[355px] text-2xl" onClick={()=>navigate("/feed")}>x</p>
      <p className=" pt-2 ml-36 font-bold text-lg text-green-500">Edit Profile</p>
     
@@ -121,7 +121,7 @@ const handleSave=async()=>{
      </div>
 
 
-            <div id="userExp" className="mt-10  rounded-md cursor-pointer bg-[#1D232A] text-white w-[380px] h-[590px] overflow-hidden">
+            <div id="userExp" className="mt-10 ml-5 lg:ml-2 rounded-md cursor-pointer bg-[#1D232A] text-white w-[380px] h-[590px] overflow-hidden">
                 <div className="w-full h-[380px]">
                     <img src={photoUrl || "https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3383.jpg?semt=ais_hybrid"} className=" w-full h-full object-fill "></img>
                 </div>

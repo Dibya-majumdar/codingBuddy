@@ -25,13 +25,13 @@ useEffect(()=>{
     gettingRequest();
     },[])    //remove selector from dependency array
 
-    if(selector===null) return <h1 className='ml-[600px] mt-3 font-bold text-3xl  '>No friend request comes</h1>;
-    if(selector.length===0) return <h1 className='ml-[600px] mt-3 font-bold text-3xl  '>No friend request comes</h1>
+    if(selector===null) return <h1 className='ml-0 lg:ml-[600px] mt-3 font-bold text-3xl  '>No friend request comes</h1>;
+    if(selector.length===0) return <h1 className='lg:ml-[600px] mt-3 font-bold text-3xl  '>No friend request comes</h1>
 
   return (
     <>
-    {selector!=null ?   <div className='flex gap-10 '>
-      <div> <p className='ml-[500px]  mt-2 text-3xl font-bold mb-5'>friend Requests(< span className="text-red-500">{selector.length}</span>)</p></div>
+    {selector!=null ?   <div className='flex sm:gap-2 lg:gap-10 justify-normal lg:justify-center'>
+      <div> <p className='  mt-2 text-3xl font-bold mb-5'>friend Requests(< span className="text-red-500">{selector.length}</span>)</p></div>
      
       <Link to={"/connections"}> <div className='w-40 h-12 bg-green-500 rounded-md mt-2'>
           <button className='ml-6 mt-2 font-bold text-xl'> See Friends</button>

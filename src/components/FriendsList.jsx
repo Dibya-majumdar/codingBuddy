@@ -24,13 +24,13 @@ const FriendList=()=>{
         connections();
     },[])
 
-    if(selector==null) return <h1 className='ml-[600px] mt-3 font-bold text-3xl  '>no friends found</h1>
-    if(selector.length===0) return <h1 className='ml-[600px] mt-3 font-bold text-3xl  '>no friends found</h1>
+    if(selector==null) return <h1 className='sm:ml-5 md:ml-[600px] mt-3 font-bold text-3xl  '>no friends found</h1>
+    if(selector.length===0) return <h1 className='sm:ml-5 md:ml-[600px] mt-3 font-bold text-3xl  '>no friends found</h1>
     return(
         <>
       <div>
-      <div className='flex gap-10 mb-5 '>
-      <div> <p className='ml-[620px]  mt-2 text-3xl font-bold mb-5'>Your Friends(< span className="text-red-500">{selector.length}</span>)</p></div>
+      <div className='flex gap-10 mb-5 justify-center lg:justify-normal'>
+      <div className=""> <p className=' lg:ml-[620px]  mt-2 text-3xl font-bold mb-5'>Your Friends(< span className="text-red-500">{selector.length}</span>)</p></div>
      
       
       </div>

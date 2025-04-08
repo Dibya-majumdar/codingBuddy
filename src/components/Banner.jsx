@@ -12,7 +12,7 @@ const Banner = () => {
     <>
      <div className='h-[634px] '>
       <div className='p-auto h-40 w-full text-white absolute z-10 pt-20'>
-      <h1 className='font-bold text-5xl text-center pt-40 p-auto cursor-pointer'>DevBuddy<br></br> Find You coding Partner</h1>
+      <h1 className='font-bold text-5xl text-center pt-40 p-auto cursor-pointer'>DevBuddy<br></br> Find Your coding Partner</h1>
       {/* <h1 className='text-center'>New in the website</h1> */}
       <div className='flex justify-center  gap-2 mt-5'>
         <input className='w-1/2 h-16 rounded-md outline-none bg-white text-4xl pl-5 font-semibold text-black '></input>
