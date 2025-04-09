@@ -11,6 +11,10 @@ import FriendList from "./components/FriendsList";
 import FriendRequest from "./components/FriendRequest";
 import Banner from "./components/Banner";
 import Chat from "./components/Chat";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import TermsAndService from "./components/TermsAndService";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 const App=()=>{
 
 
@@ -27,6 +31,10 @@ const App=()=>{
       <Route path="/connections" element={<FriendList/>}></Route>
       <Route path="/connectionrequest" element={<FriendRequest/>}></Route>
       <Route path="/chat/:targetUserId" element={<Chat/>}></Route>
+      <Route path="/about" element={<About/>}></Route>
+      <Route path="/contact" element={<Contact/>}></Route>
+      <Route path="/terms" element={<TermsAndService/>}></Route>
+      <Route path="/privacyPolicy" element={<PrivacyPolicy/>}></Route>
     </Route>
     
  </Routes>

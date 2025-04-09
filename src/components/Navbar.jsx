@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
    <>
    <div id="navbar" className='bg-[#1D232A] flex h-[60px] justify-between w-full '>
-    <Link to={"/"}><div id="textlogo&" className='text-lg text-white sm:ml-0 md:ml-10 mt-[10px] font-bold h-[35px] w-[65px] '>DevBuddy</div></Link>
+{loginData === "logout" ? (<Link ><div id="textlogo&" className='text-lg text-white sm:ml-0 md:ml-10 mt-[10px] font-bold h-[35px] w-[65px] '>DevBuddy</div></Link>):(<Link to={"/"}><div id="textlogo&" className='text-lg text-white sm:ml-0 md:ml-10 mt-[10px] font-bold h-[35px] w-[65px] '>DevBuddy</div></Link>)}
     <div id="login&signup" className='text-lg flex gap-2 md:gap-5'>
      <button className='bg-green-500 text-black rounded-xl h-[35px] w-[65px]  mt-[10px] font-bold sm:ml-[10px] 'onClick={()=>{
           if(loginData=="login"){
