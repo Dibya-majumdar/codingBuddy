@@ -14,8 +14,8 @@ const Login=()=>{
     const selector=useSelector((store)=>store.admin);
     
     const [signUp,setsignUp]=useState(false);
-    const [email,setEmail]=useState("dibya@gmail.com");
-    const [pass,setPass]=useState("dibya@123");
+    const [email,setEmail]=useState("");
+    const [pass,setPass]=useState("");
     const[firstName,setFirstName]=useState("");
     const [lastName,setLastname]=useState("");
     const [age,setAge]=useState("");
@@ -24,7 +24,7 @@ const Login=()=>{
     const [about,setAbout]=useState("");
     const[error,setError]=useState("");
     const [data,setData]=useState(true);
-    const [adminKey,setadminKey]=useState("adminchandan");
+    const [adminKey,setadminKey]=useState("");
     const navigate=useNavigate();//make only after signuP automatically navigate to login page
 
     const submitLogin=async()=>{
