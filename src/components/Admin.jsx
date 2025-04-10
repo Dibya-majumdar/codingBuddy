@@ -17,7 +17,7 @@ const adminMessage=async ()=>{
   return (
     <>
     {message.map((val)=>(
- <div className='bg-[#1D232A] text-white ml-2 lg:ml-[400px] sm:w-[100px] lg:w-1/2 pl-2 lg:pl-[20px] rounded-sm mt-2 pt-2 pb-2 '>
+ <div className='bg-[#1D232A] text-white ml-2 lg:ml-[400px] lg:w-1/2 pl-2 lg:pl-[20px] rounded-sm mt-2 pt-2 pb-2 '>
     <div className='flex'>
             <h1 className='text-green-500 text-xl font-bold'>Name:</h1>
             <h1 className='text-xl font-bold '>{val.Name}</h1>
