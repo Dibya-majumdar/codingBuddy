@@ -15,6 +15,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import TermsAndService from "./components/TermsAndService";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import Admin from "./components/Admin";
 const App=()=>{
 
 
@@ -35,6 +36,7 @@ const App=()=>{
       <Route path="/contact" element={<Contact/>}></Route>
       <Route path="/terms" element={<TermsAndService/>}></Route>
       <Route path="/privacyPolicy" element={<PrivacyPolicy/>}></Route>
+      <Route path="/admin" element={<Admin/>}></Route>
     </Route>
     
  </Routes>

@@ -2,18 +2,20 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from "../reduxStore/userSlice";
 import { change } from "../reduxStore/loginLogoutSlice";
+import { adminOff, adminOn } from "../reduxStore/adminSlice";
 
 
 
 const Login=()=>{
     const dispatch=useDispatch();
+    const selector=useSelector((store)=>store.admin);
     
     const [signUp,setsignUp]=useState(false);
-    const [email,setEmail]=useState("");
-    const [pass,setPass]=useState("");
+    const [email,setEmail]=useState("dibya@gmail.com");
+    const [pass,setPass]=useState("dibya@123");
     const[firstName,setFirstName]=useState("");
     const [lastName,setLastname]=useState("");
     const [age,setAge]=useState("");
@@ -22,6 +24,7 @@ const Login=()=>{
     const [about,setAbout]=useState("");
     const[error,setError]=useState("");
     const [data,setData]=useState(true);
+    const [adminKey,setadminKey]=useState("adminchandan");
     const navigate=useNavigate();//make only after signuP automatically navigate to login page
 
     const submitLogin=async()=>{
@@ -53,12 +56,25 @@ const Login=()=>{
        
     }
 
+    const adminLogin=async()=>{
+        try{
+            const res=await axios.post("http://localhost:3000/admin/login",{emailId:email,password:pass,adminKey},{withCredentials:true});
+            console.log(res.data)
+            dispatch(addUser(res.data));
+            dispatch(change())
+            return navigate("/feed");
+        }catch(err){
+            console.log(err)
+        }
+
+    }
+
 
 //ml-500
     return(
         <>
        
-        {signUp==false ?(<div id="login" className="bg-[#1D232A] text-white  w-11/12 sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 
+        {signUp==false ?(selector == false? (<div id="login" className="bg-[#1D232A] text-white  w-11/12 sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 
      mr-auto    ml-0 sm:ml-20 md:ml-40 lg:ml-64 xl:ml-[500px] mt-5  rounded-md cursor-pointer    " >
      <p className=" pl-[290px] sm:pl[320px] md:pl-[305px] lg:pl-[355px] text-2xl" onClick={()=>navigate("/")}>x</p>
      <p className=" pt-2 ml-36 sm:ml-16 md:ml-36 font-bold text-lg text-green-500">Login</p>
@@ -85,11 +101,57 @@ const Login=()=>{
             <button className="bg-green-600 rounded-lg h-10 w-24  mt-3 ml-32" onClick={submitLogin}>Login</button>
            
         </div>
-        <div className="flex ml-20 mt-5 mb-5">
-            <p className="text-gray-500 font-bold mb-5">new in website ? Do</p><p className="text-gray-500 font-bold underline ml-1" onClick={()=>{ setsignUp(true)}
+        <div className="flex ml-20 mt-5 ">
+            <p className="text-gray-500 font-bold mb-3">new in website ? Do</p><p className="text-gray-500 font-bold underline ml-1" onClick={()=>{ setsignUp(true)}
                }>signUp</p>
         </div>
-     </div>)
+        <div className="flex justify-center  mb-5">
+        <p className="text-gray-500 font-bold mb-5">are you a Admin? Do</p><p className="text-gray-500 font-bold underline ml-1" onClick={()=>{
+            dispatch(adminOn(true));
+        }} >AdminLogin</p>
+        </div>
+     {/* //start   */}
+     </div>):(<div id="login" className="bg-[#1D232A] text-white  w-11/12 sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 
+     mr-auto    ml-0 sm:ml-20 md:ml-40 lg:ml-64 xl:ml-[500px] mt-5  rounded-md cursor-pointer    " >
+     <p className=" pl-[290px] sm:pl[320px] md:pl-[305px] lg:pl-[355px] text-2xl" onClick={()=>navigate("/")}>x</p>
+     <p className=" pt-2 ml-36 sm:ml-16 md:ml-36 font-bold text-lg text-green-500">Login</p>
+    
+   
+        <div id="email"className="ml-0 ">
+            <p className="mt-[10px] ml-[25px] font-bold text-xl ">Email</p>
+            <input placeholder="Enter Email" className="rounded-sm  ml-[25px] w-[280px] md:w-[310px] lg:w-[330px] h-10 mt-2 pl-5 text-black outline-none" value={email} onChange={(e)=>{
+                setError("")
+                setEmail(e.target.value);
+            }}/>
+        </div>
+        <div id="password">
+            <p className="mt-[10px] ml-[25px] font-bold text-xl ">Password</p>
+            <input type="password" placeholder="Enter Password" className="rounded-sm  ml-[25px] w-[280px]  md:w-[310px] lg:w-[330px] h-10 mt-2 pl-5 text-black outline-none" value={pass} onChange={(e)=>{
+                   setError("")
+                setPass(e.target.value);
+            }}/>
+        </div>
+        <div id="adminKey">
+            <p className="mt-[10px] ml-[25px] font-bold text-xl ">Admin Key</p>
+            <input type="password" placeholder="Enter Password" className="rounded-sm  ml-[25px] w-[280px]  md:w-[310px] lg:w-[330px] h-10 mt-2 pl-5 text-black outline-none" value={adminKey} onChange={(e)=>{
+                   setError("")
+                setadminKey(e.target.value);
+            }}/>
+        </div>
+        {
+           error !=" " ? <p className="ml-28 text-red-500">{error}</p>:<p></p>
+        }
+        <div id="btn">
+            <button className="bg-green-600 rounded-lg h-10 w-24  mt-3 ml-32" onClick={adminLogin}>Login</button>
+           
+        </div>
+        <div className="flex ml-20 mt-5 ">
+            <p className="text-gray-500 font-bold mb-3">new in website ? Do</p><p className="text-gray-500 font-bold underline ml-1" onClick={()=>{ setsignUp(true)}
+               }>signUp</p>
+        </div>
+        
+     </div>))
+    //  end
      :
      
        (<div id="login" className="bg-[#1D232A] text-white  w-11/12 sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 
@@ -164,6 +226,7 @@ const Login=()=>{
         <div className="flex ml-16 mt-5 mb-5">
             <p className="text-gray-500 font-bold text-center">already have an account ?</p><p className="text-gray-500 font-bold underline ml-1" onClick={()=>{
                 setsignUp(false)
+                dispatch(adminOff());
             }}>login</p>
         </div>
      </div>)}

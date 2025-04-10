@@ -1,20 +1,29 @@
-// import React from 'react'
-
-// const Contact = () => {
-//   return (
-//     <div>
-//       <h1>Contact</h1>
-//     </div>
-//   )
-// }
-
-// export default Contact
 
 
-import React from "react";
+
+import axios from "axios";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
+  const [emai,setEmail]=useState("");
+  const [text,setText]=useState("");
+  const [name,setName]=useState("");
+
+
+const sendAdminMessage=async()=>{
+  try{
+    const res=await axios.post("http://localhost:3000/Admin/message",{emailId:emai,messages:text,Name:name},{withCredentials:true});
+  setEmail("");
+  setName("");
+  setText("");
+  }catch(err){
+    console.log(err);
+  }
+
+}
+
+
   return (
     <div className="min-h-screen  text-black px-6 md:px-16 py-12">
       <h1 className="text-4xl font-bold text-green-600 mb-4">Contact Us</h1>
@@ -43,30 +52,27 @@ const Contact = () => {
 
       {/* Optional: Contact Form */}
       <div className="mt-12">
-        {/* <h2 className="text-2xl font-bold text-green-400 mb-4">Send us a message</h2> */}
-        {/* <form className="space-y-4 max-w-xl">
-          <input
-            type="text"
-            placeholder="Your Name"
-            className="w-full p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none"
-          />
-          <input
+        <h2 className="text-2xl font-bold text-green-400 mb-4">Send us a message</h2> 
+       <div className="">
+        <div>  <input type="text" placeholder="Your Name" className="w-2/3 lg:w-[400px] p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none mb-3" value={name} onChange={(e)=>setName(e.target.value)}/></div>
+        <div>  <input
             type="email"
             placeholder="Your Email"
-            className="w-full p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none"
-          />
-          <textarea
+            className=" w-2/3 lg:w-[400px] p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none mb-3" value={emai} onChange={(e)=>setEmail(e.target.value)}
+          /></div>
+        <div> <textarea
             placeholder="Your Message"
             rows="5"
-            className="w-full p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none"
-          ></textarea>
+            className="w-2/3  lg:w-[400px] p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none" value={text} onChange={(e)=>setText(e.target.value)}
+          ></textarea></div>
+          </div>
           <button
             type="submit"
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded"
+            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded" onClick={sendAdminMessage}
           >
             Send
           </button>
-        </form> */}
+         
       </div>
     </div>
   );

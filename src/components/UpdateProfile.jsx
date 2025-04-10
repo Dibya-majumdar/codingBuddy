@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { addUser } from "../reduxStore/userSlice";
@@ -12,6 +12,7 @@ import { addUser } from "../reduxStore/userSlice";
 const UpdateProfile = ({val}) => {
     const dispatch=useDispatch();
      const navigate=useNavigate();
+     const selector=useSelector((store)=>store.admin);
 
     const [firstName,setFirstName]=useState(val.firstName);
     const [lastName,setLastName]=useState(val.lastName);
@@ -141,6 +142,7 @@ const handleSave=async()=>{
 
             </div>
             </div>
+            <Link to={"/admin"}><div className='flex justify-center'>{ selector===true && <button className='bg-green-600 rounded-md h-20 pl-5 p-5 ml-2 mb-5 text-black font-bold text-xl'>Received Message</button>}</div></Link>
     </>
   )
 }
