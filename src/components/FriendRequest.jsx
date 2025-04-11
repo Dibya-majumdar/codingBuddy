@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import { requestComes } from '../reduxStore/frdRequestSlice'
 
-import ConnectionReqCard from '../cards/connectionReqCard';
+import ConnectionReqCard from '../cards/ConnectionReqCard';
 import { Link } from 'react-router-dom';
 
 
