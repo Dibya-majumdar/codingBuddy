@@ -6,6 +6,7 @@ import { notchange } from '../reduxStore/loginLogoutSlice';
 import { removeUser } from '../reduxStore/userSlice';
 import { Link } from 'react-router-dom';
 import { adminOff } from '../reduxStore/adminSlice';
+import { Base_Url } from '../utils/constant';
 
 
 
@@ -19,7 +20,7 @@ const Navbar = () => {
   const user=useSelector((store)=>store.user);
   // console.log(user);
   const handleLogout=async()=>{
-    const res=await axios.post("http://localhost:3000/logout", { },{withCredentials:true});
+    const res=await axios.post(`${Base_Url}/logout`, { },{withCredentials:true});
     // console.log(res.data.message);
     dispatch(removeUser());
     dispatch(adminOff());

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import {useParams} from "react-router-dom"
 import { createSocketConnection } from '../webSockets/socket';  //../ means outside the directory and ./ means inside this directry
 import axios from 'axios';
+import { Base_Url } from '../utils/constant';
 
 const Chat = () => {
 const {targetUserId}=useParams();
@@ -12,7 +13,7 @@ const [message,setmessage]=useState([]);
 const [inputText,setText]=useState("")
 
 async function gettingDtaFromDb(){  //facing problem at connection
-  const res=await axios.get(`http://localhost:3000/chat/${targetUserId}`,{withCredentials:true});
+  const res=await axios.get(`${Base_Url}/chat/${targetUserId}`,{withCredentials:true});
   
   // console.log(res.data.messages);
   const chatMessages=res.data.messages.map((val)=>{

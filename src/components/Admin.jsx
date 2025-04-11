@@ -1,10 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Base_Url } from '../utils/constant';
 
 const Admin = () => {
     const [message,setMessage]=useState([]);
 const adminMessage=async ()=>{
-    const res=await axios.get("http://localhost:3000/Admin/message",{withCredentials:true});
+    const res=await axios.get(`${Base_Url}/Admin/message`,{withCredentials:true});
     // console.log(res.data);//it is a array consists of objets
     setMessage(res.data);
 }

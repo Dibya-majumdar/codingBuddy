@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { removeFeedData } from "../reduxStore/feedSlice";
+import { Base_Url } from "../utils/constant";
 
 const FeedCard=({val})=>{
     const dispatch=useDispatch();
@@ -11,7 +12,7 @@ const FeedCard=({val})=>{
    
 const handleBtn=async(status,requestid)=>{
     try{
-        const res=await axios.post(`http://localhost:3000/request/send/${status}/${requestid}`,{},{withCredentials:true}); //now everything is perfect but after sending request i have to remove the card from page -> Todo
+        const res=await axios.post(`${Base_Url}/request/send/${status}/${requestid}`,{},{withCredentials:true}); //now everything is perfect but after sending request i have to remove the card from page -> Todo
         //from val i am getting the user data of feed(array of users)now val._id becomes action.payload in slice.
         console.log(res);
     }catch(err){

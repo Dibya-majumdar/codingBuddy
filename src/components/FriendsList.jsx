@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFriendsData } from "../reduxStore/friendsSlice";
 import FriendsCard from "../cards/FriendsCard";
+import { Base_Url } from "../utils/constant";
 
 
 const FriendList=()=>{
@@ -13,7 +14,7 @@ const FriendList=()=>{
 
     const connections=async()=>{
     try{
-        const res=await axios.get("http://localhost:3000/user/connections",{withCredentials:true});
+        const res=await axios.get(`${Base_Url}/user/connections`,{withCredentials:true});
         dispatch(addFriendsData(res.data.checkUserTable));
     }catch(err){
     console.log(err);

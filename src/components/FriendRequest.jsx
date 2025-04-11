@@ -5,6 +5,7 @@ import { requestComes } from '../reduxStore/frdRequestSlice'
 
 import ConnectionReqCard from '../cards/ConnectionReqCard';
 import { Link } from 'react-router-dom';
+import { Base_Url } from '../utils/constant';
 
 
 const FriendRequest = () => {
@@ -15,7 +16,7 @@ const FriendRequest = () => {
 const gettingRequest=async()=>{
 
 try{
-const res=await axios.get("http://localhost:3000/user/request",{withCredentials:true});
+const res=await axios.get(`${Base_Url}/user/request`,{withCredentials:true});
 // console.log(res.data.data);
 dispatch(requestComes(res.data.data));
 }catch(err){

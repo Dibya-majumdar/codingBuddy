@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addFeedData } from '../reduxStore/feedSlice'
 import FeedCard from './FeedCard'
+import { Base_Url } from '../utils/constant'
 
 
 
@@ -15,7 +16,7 @@ const Feed = () => {
   // console.log(feed);
   const feedApiFunc=async()=>{      //function to call the get api using axios
   try{
-    const res=await axios.get("http://localhost:3000/user/feed",{withCredentials:true});
+    const res=await axios.get(`${Base_Url}/user/feed`,{withCredentials:true});
     const val=res.data;
     // console.log(res);
    dispatch(addFeedData(val));    //storing data into initialState of feed slice of store.

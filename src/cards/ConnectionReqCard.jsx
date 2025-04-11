@@ -3,13 +3,14 @@ import axios from 'axios'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { removeFrd } from '../reduxStore/frdRequestSlice'; //in the same folder means ./ but if diff folder than ../ 
+import { Base_Url } from '../utils/constant';
 
 const ConnectionReqCard = ({val}) => {
   const selector=useSelector((store)=>store.frdRequest);
   const dispatch=useDispatch();
   // console.log("val:",val);
 const handleAddOrRemoveFriend=async(status,reqId)=>{
-const res=await axios.post(`http://localhost:3000/request/review/${status}/${reqId}`,{},{withCredentials:true}); 
+const res=await axios.post(`${Base_Url}/request/review/${status}/${reqId}`,{},{withCredentials:true}); 
 console.log(res);
 }
 

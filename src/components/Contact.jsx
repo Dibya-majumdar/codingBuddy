@@ -5,6 +5,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ToastCard from "../cards/ToastCard";
+import { Base_Url } from "../utils/constant";
 
 const Contact = () => {
   const [emai,setEmail]=useState("");
@@ -16,7 +17,7 @@ const Contact = () => {
 
 const sendAdminMessage=async()=>{
   try{
-    const res=await axios.post("http://localhost:3000/Admin/message",{emailId:emai,messages:text,Name:name},{withCredentials:true});
+    const res=await axios.post(`${Base_Url}/Admin/message`,{emailId:emai,messages:text,Name:name},{withCredentials:true});
   setEmail("");
   setName("");
   setText("");

@@ -7,6 +7,7 @@ import axios from "axios";
 
 import { addUser } from "../reduxStore/userSlice";
 import ToastCard from '../cards/ToastCard';
+import { Base_Url } from '../utils/constant';
 
 
 
@@ -32,7 +33,7 @@ const UpdateProfile = ({val}) => {
         formData.append("image",file); //pass image in the obj
         try{
              const res=await axios.post(`https://api.imgbb.com/1/upload?&key=0c0cbaf58e6997933b70c102e60cca69`,formData);//at first it is showing error beacuse of i have did -> {formData}.but i should do -> formData.
-           console.log(res);
+        //    console.log(res);
            setPhotoUrl(res.data.data.url)
         }catch(err){
             console.log(err);
@@ -52,11 +53,11 @@ const UpdateProfile = ({val}) => {
   
 const handleSave=async()=>{
         try{
-            const res=(password.trim()==="")?( await axios.patch("http://localhost:3000/profile/edit",{firstName,lastName,age,photoUrl,about,gender},{withCredentials:true})):( await axios.patch("http://localhost:3000/profile/edit",{firstName,lastName,password,age,photoUrl,about,gender},{withCredentials:true}))
+            const res=(password.trim()==="")?( await axios.patch(`${Base_Url}/profile/edit`,{firstName,lastName,age,photoUrl,about,gender},{withCredentials:true})):( await axios.patch("http://localhost:3000/profile/edit",{firstName,lastName,password,age,photoUrl,about,gender},{withCredentials:true}))
             dispatch(addUser(res.data));
            
        
-        console.log(res)
+        // console.log(res)
         setToast(true);
    
 

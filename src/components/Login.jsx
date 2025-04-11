@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from "../reduxStore/userSlice";
 import { change } from "../reduxStore/loginLogoutSlice";
 import { adminOff, adminOn } from "../reduxStore/adminSlice";
+import { Base_Url } from "../utils/constant";
 
 
 
@@ -31,7 +32,7 @@ const Login=()=>{
     const submitLogin=async()=>{
         try{
             // const res=await axios.post("http://localhost:3000/login", { emailId: email, password: pass });
-            const res=await axios.post("http://localhost:3000/login", { emailId: email, password: pass },{withCredentials:true});
+            const res=await axios.post(`${Base_Url}/login`, { emailId: email, password: pass },{withCredentials:true});
           
             // console.log(res);
             dispatch(addUser(res.data));
@@ -46,7 +47,7 @@ const Login=()=>{
     }
     const submitSignup=async()=>{
         try{
-            const res=await axios.post("http://localhost:3000/signup",{firstName,lastName,age,emailId:email,password:pass,gender,about},{withCredentials:true});//remove photoUrl from here
+            const res=await axios.post(`${Base_Url}/signup`,{firstName,lastName,age,emailId:email,password:pass,gender,about},{withCredentials:true});//remove photoUrl from here
             console.log(res);
             // setData(!data);//make only after signuP automatically comes to login Ui
             setsignUp(!signUp);
@@ -59,7 +60,7 @@ const Login=()=>{
 
     const adminLogin=async()=>{
         try{
-            const res=await axios.post("http://localhost:3000/admin/login",{emailId:email,password:pass,adminKey},{withCredentials:true});
+            const res=await axios.post(`${Base_Url}/admin/login`,{emailId:email,password:pass,adminKey},{withCredentials:true});
             // console.log(res.data)
             dispatch(addUser(res.data));
             dispatch(change())

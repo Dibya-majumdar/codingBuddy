@@ -8,6 +8,7 @@ import axios from 'axios'
 import { addUser } from '../reduxStore/userSlice'
 import { change, notchange } from '../reduxStore/loginLogoutSlice'
 import Footer from './Footer'
+import { Base_Url } from '../utils/constant'
 //cause we are always coming here at first so check is user in login or not? if login then set the redux store and update the ui thats all
 const Body = () => {
   const dispatch=useDispatch();
@@ -15,7 +16,7 @@ const Body = () => {
   //it will not run if token is not there.
   const fetchUser=async()=>{
     try{
-        const res=await axios.get("http://localhost:3000/profile/view",{withCredentials:true});
+        const res=await axios.get(`${Base_Url}/profile/view`,{withCredentials:true});
         dispatch(addUser(res.data))
       //  console.log(res)
           dispatch(change()) //for loginlOGOUT btn value 
