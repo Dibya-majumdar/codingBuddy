@@ -12,6 +12,7 @@ import { adminOff, adminOn } from "../reduxStore/adminSlice";
 const Login=()=>{
     const dispatch=useDispatch();
     const selector=useSelector((store)=>store.admin);
+    const selector2=useSelector((store)=>store.login);
     
     const [signUp,setsignUp]=useState(false);
     const [email,setEmail]=useState("");
@@ -59,7 +60,7 @@ const Login=()=>{
     const adminLogin=async()=>{
         try{
             const res=await axios.post("http://localhost:3000/admin/login",{emailId:email,password:pass,adminKey},{withCredentials:true});
-            console.log(res.data)
+            // console.log(res.data)
             dispatch(addUser(res.data));
             dispatch(change())
             return navigate("/feed");
@@ -69,7 +70,7 @@ const Login=()=>{
 
     }
 
-
+if(selector2==="logout") return <h1 className='text-black font-bold text-md lg:text-4xl text-center'>You are already logged in !</h1>
 //ml-500
     return(
         <>
@@ -106,7 +107,7 @@ const Login=()=>{
                }>signUp</p>
         </div>
         <div className="flex justify-center  mb-5">
-        <p className="text-gray-500 font-bold mb-5">are you a Admin? Do</p><p className="text-gray-500 font-bold underline ml-1" onClick={()=>{
+        <p className="text-gray-500 font-bold mb-5">are you Admin? Do</p><p className="text-gray-500 font-bold underline ml-1" onClick={()=>{
             dispatch(adminOn(true));
         }} >AdminLogin</p>
         </div>
@@ -145,7 +146,13 @@ const Login=()=>{
             <button className="bg-green-600 rounded-lg h-10 w-24  mt-3 ml-32" onClick={adminLogin}>Login</button>
            
         </div>
-        <div className="flex ml-20 mt-5 ">
+        <div className="flex justify-center mt-5 text-center">
+            <p className="text-gray-500 font-bold text-center">Normal login ?</p><p className="text-gray-500 font-bold underline ml-1" onClick={()=>{
+                setsignUp(false)
+                dispatch(adminOff());
+            }}>login</p>
+        </div>
+        <div className="flex justify-center mt-2 ">
             <p className="text-gray-500 font-bold mb-3">new in website ? Do</p><p className="text-gray-500 font-bold underline ml-1" onClick={()=>{ setsignUp(true)}
                }>signUp</p>
         </div>

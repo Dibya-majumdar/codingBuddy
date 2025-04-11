@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { addUser } from "../reduxStore/userSlice";
+import ToastCard from '../cards/ToastCard';
 
 
 
@@ -22,6 +23,7 @@ const UpdateProfile = ({val}) => {
     const[photoUrl,setPhotoUrl]=useState( val.photoUrl||"");
     const[about,setAbout]=useState(val.about|| "");
      const[error,setError]=useState("");
+     const [toast,setToast]=useState(false);
 
      const handleUpload=async(e)=>{
         const file=e.target.files[0];//image that user pass from input box
@@ -39,14 +41,28 @@ const UpdateProfile = ({val}) => {
 
      }
 
-   
+   const setTimeoutDidNotReturnPromise= ()=>{
+    return new Promise((resolve, reject) => {
+        setTimeout(()=>{
+            setToast(false)
+            resolve();
+              },1500)
+       }
+    )}
+  
 const handleSave=async()=>{
         try{
             const res=(password.trim()==="")?( await axios.patch("http://localhost:3000/profile/edit",{firstName,lastName,age,photoUrl,about,gender},{withCredentials:true})):( await axios.patch("http://localhost:3000/profile/edit",{firstName,lastName,password,age,photoUrl,about,gender},{withCredentials:true}))
             dispatch(addUser(res.data));
-            navigate("/feed");
+           
        
         console.log(res)
+        setToast(true);
+   
+
+    await setTimeoutDidNotReturnPromise();
+
+        // return navigate("/feed");
         }catch(err){
             console.log(err.message);
         }
@@ -54,6 +70,7 @@ const handleSave=async()=>{
 
   return (
     <>
+    {toast && <ToastCard val1={"Save Profile"}/>}
       <div id="wraperTopMost" className="lg:flex w-full gap-10 mb-5" >
             
 
@@ -122,7 +139,7 @@ const handleSave=async()=>{
      </div>
 
 
-            <div id="userExp" className="mt-10 ml-5 lg:ml-2 rounded-md cursor-pointer bg-[#1D232A] text-white w-[380px] h-[590px] overflow-hidden">
+            <div id="userExp" className="mt-10 ml-5 lg:ml-2 rounded-md cursor-pointer bg-[#1D232A] text-white w-[380px] h-full overflow-hidden">
                 <div className="w-full h-[380px]">
                     <img src={photoUrl || "https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3383.jpg?semt=ais_hybrid"} className=" w-full h-full object-fill "></img>
                 </div>

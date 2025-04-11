@@ -22,7 +22,7 @@ const App=()=>{
   return (
      <>
    <Provider store={appStore}>
- <BrowserRouter basename="/">
+ <BrowserRouter basename="/">   
  <Routes>
     <Route path="/" element={<Body/>}>
     <Route path="/" element={<Banner/>}></Route>

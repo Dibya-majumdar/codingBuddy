@@ -23,7 +23,7 @@ const Body = () => {
       
     }catch(err){
       dispatch(notchange())
-      console.log(err);
+      // console.log(err);
     }
   }
   useEffect(()=>{

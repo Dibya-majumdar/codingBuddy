@@ -7,8 +7,8 @@ const Footer=()=>{
 
     return(
         <>
-       <div id="Footer" className="w-full bg-[#1D232A] flex flex-col cursor-pointer  ">
-        <div id="main" className="flex h-60  justify-around pt-5  ">
+       <div id="Footer" className="w-full bg-[#1D232A] flex flex-col cursor-pointer   ">
+        <div id="main" className="flex h-full  justify-around pt-5  ">
             <div className="">
                 <h1 className="text-green-500  font-bold text-md md:text-xl">Company Name</h1>
                 {selector === "logout" ?(<Link to={"/feed"}><p className="mt-3 font-bold text-sm  md:text-lg text-white  hover:text-red-500 hover:underline">DevBuddy</p></Link>):(<Link to={"/"}><p className="mt-3 font-bold text-sm  md:text-lg text-white  hover:text-red-500 hover:underline">DevBuddy</p></Link>)}
@@ -20,7 +20,7 @@ const Footer=()=>{
             {selector =="logout" ?(<Link to={"/connections"}> <p className="mt-3  font-bold text-sm  md:text-lg text-white hover:underline hover:text-red-500">Your Friends</p></Link>):(<Link to={"/login"}> <p className="mt-3  font-bold text-sm  md:text-lg text-white hover:underline hover:text-red-500">Your Friends</p></Link>)}
             {selector =="logout" ?(<Link to={"/connectionrequest"}><p className="mt-3  font-bold text-sm  md:text-lg text-white  hover:text-red-500">Friend Request</p></Link>):(<Link to={"/login"}><p className=" hover:underline hover:text-red-500 mt-3  font-bold text-sm  md:text-lg text-white">Friend Request</p></Link>)}
                 <Link to={"/about"}><p className="mt-3 hover:underline hover:text-red-500 font-bold text-sm  md:text-lg text-white">About Us</p></Link>
-                <Link to={"/contact"}><p className="mt-3 hover:underline hover:text-red-500 font-bold text-sm  md:text-lg text-white">Contact</p></Link>
+                <Link to={"/contact"}><p className="mt-3 hover:underline hover:text-red-500 font-bold text-sm  md:text-lg text-white mb-1">Contact</p></Link>
             </div>
             <div>
                 <h1 className="text-green-500 font-bold text-md md:text-xl  " >Socials</h1>

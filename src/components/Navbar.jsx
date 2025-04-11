@@ -5,6 +5,7 @@ import axios from 'axios';
 import { notchange } from '../reduxStore/loginLogoutSlice';
 import { removeUser } from '../reduxStore/userSlice';
 import { Link } from 'react-router-dom';
+import { adminOff } from '../reduxStore/adminSlice';
 
 
 
@@ -13,6 +14,7 @@ const Navbar = () => {
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const loginData=useSelector((store)=>store.login)
+  const adminLoginOrLogout=useSelector((store)=>store.admin)
   // const userLogo=useSelector((store)=>store?.user?.data?.photoUrl);
   const user=useSelector((store)=>store.user);
   // console.log(user);
@@ -20,6 +22,7 @@ const Navbar = () => {
     const res=await axios.post("http://localhost:3000/logout", { },{withCredentials:true});
     // console.log(res.data.message);
     dispatch(removeUser());
+    dispatch(adminOff());
     return navigate("/login")
 
 

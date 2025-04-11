@@ -9,6 +9,9 @@ import { useSelector } from 'react-redux';
 const Banner = () => {
   const navigate=useNavigate();
   const selector=useSelector((store)=>store.login)
+  if(selector === "logout"){
+    return navigate("/feed")
+  }
   return (
     <>
      <div className='h-[634px] '>

@@ -4,11 +4,14 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import ToastCard from "../cards/ToastCard";
 
 const Contact = () => {
   const [emai,setEmail]=useState("");
   const [text,setText]=useState("");
   const [name,setName]=useState("");
+  const [error,seterror]=useState("");
+  const [toast,setToast]=useState(false);
 
 
 const sendAdminMessage=async()=>{
@@ -17,15 +20,21 @@ const sendAdminMessage=async()=>{
   setEmail("");
   setName("");
   setText("");
+  setToast(true);
+  setTimeout(()=>{
+setToast(false)
+  },3000)
   }catch(err){
     console.log(err);
+    seterror(err.response.data);
   }
 
 }
 
 
   return (
-    <div className="min-h-screen  text-black px-6 md:px-16 py-12">
+    <div className="min-h-screen bg-[#1D232A]  text-white mt-2 mb-2  lg:w-1/2 px-6 md:px-16 py-12 flex flex-col lg:ml-[350px] rounded-md overflow-hidden ">
+      {toast  && <ToastCard val1={"Message send"}/>  }
       <h1 className="text-4xl font-bold text-green-600 mb-4">Contact Us</h1>
       <p className="text-lg mb-8">
         Have a question, suggestion, or just want to say hello? We’d love to hear from you! 👋
@@ -54,24 +63,36 @@ const sendAdminMessage=async()=>{
       <div className="mt-12">
         <h2 className="text-2xl font-bold text-green-400 mb-4">Send us a message</h2> 
        <div className="">
-        <div>  <input type="text" placeholder="Your Name" className="w-2/3 lg:w-[400px] p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none mb-3" value={name} onChange={(e)=>setName(e.target.value)}/></div>
+        <div>  <input type="text" placeholder="Your Name" className="w-2/3 lg:w-[400px] p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none mb-3" value={name} onChange={(e)=>{
+          setName(e.target.value);
+          seterror("");
+        }}/></div>
         <div>  <input
             type="email"
             placeholder="Your Email"
-            className=" w-2/3 lg:w-[400px] p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none mb-3" value={emai} onChange={(e)=>setEmail(e.target.value)}
+            className=" w-2/3 lg:w-[400px] p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none mb-3" value={emai} onChange={(e)=>{
+              setEmail(e.target.value)
+              seterror("");
+            }
+          }
           /></div>
         <div> <textarea
             placeholder="Your Message"
             rows="5"
-            className="w-2/3  lg:w-[400px] p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none" value={text} onChange={(e)=>setText(e.target.value)}
+            className="w-2/3  lg:w-[400px] p-3 rounded bg-gray-800 text-white placeholder-gray-400 focus:outline-none" value={text} onChange={(e)=>{
+              setText(e.target.value)
+              seterror("");
+            }} 
           ></textarea></div>
           </div>
+          {error!=null && <div className="text-red-500 font-bold ">{error}</div>}
           <button
             type="submit"
             className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded" onClick={sendAdminMessage}
           >
             Send
           </button>
+         
          
       </div>
     </div>
